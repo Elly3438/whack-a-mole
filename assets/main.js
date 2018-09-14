@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const BASE_TIMER = 15;
+  const BASE_TIMER = 2;
   const BASE_SCORE = 0;
   const SCORE_INCREMENT = 10;
   const MIN_WAIT_TIME = 200;
@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const MAX_UP_TIME = 1500;
   let timer;
   let score;
+  let isStopped = true;
   // store any dom elements
   const startBtn = document.querySelector('.wag__start-btn');
   const stopBtn = document.querySelector('.wag__stop-btn');
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
    */
   function startGame() {
     let countdown = BASE_TIMER;
+    isStopped = false;
     score = BASE_SCORE;
     scoreSpan.textContent = score;
     timerSpan.textContent = BASE_TIMER;
@@ -65,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
    */
   function stopGame() {
     clearInterval(timer);
+    isStopped = true;
     startBtn.classList.remove('wag__btn-hide');
     stopBtn.classList.add('wag__btn-hide');
     waitTimeouts.forEach(function(timer) {
@@ -115,7 +118,9 @@ document.addEventListener('DOMContentLoaded', function() {
       event.currentTarget.classList.remove('wag__geth-visible');
       event.currentTarget.classList.add('wag__geth-clicked');
 
-      startGethPopup(event.currentTarget, index);
+      if (!isStopped) {
+        startGethPopup(event.currentTarget, index);
+      }
     };
   }
 
