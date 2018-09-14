@@ -1,0 +1,142 @@
+body {
+  background: #000 url("images/wag-bg-image.jpg");
+  font-family: 'Orbitron', sans-serif;
+}
+
+.wag__main-container {
+  align-items: center;
+  color: #efefef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wag__heading h1 {
+  padding: 40px 40px 0 40px;
+  text-transform: uppercase;
+}
+
+.wag__scorecard {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: space-between;
+  width: 600px;
+}
+
+.wag__scorecard > div {
+  margin-bottom: 20px;
+}
+
+.wag__start-btn,
+.wag__stop-btn {
+  background-color: #039ED9;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #efefef;
+  cursor: pointer;
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  height: 2em;
+  line-height: 1.5;
+  padding: 4px 18px;
+  transition: background-color 0.2s ease-in-out;
+  -webkit-appearance: none;
+}
+
+.wag__start-btn:focus,
+.wag__start-btn:hover {
+  background-color: #00729e;
+}
+
+.wag__start-btn.wag__btn-hide,
+.wag__stop-btn.wag__btn-hide {
+  display: none;
+}
+
+.wag__game-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.wag__game-column {
+  width: 33.3333%
+}
+
+.wag__hole-container {
+  height: 150px;
+  max-width: 160px;
+  padding: 20px;
+}
+
+.wag__geth-container {
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wag__geth {
+  background: url("images/geth-initial.png") no-repeat;
+  height: 150px;
+  position: absolute;
+  top: 250px;
+  transition: top 0.2s ease-in-out;
+  width: 160px;
+}
+
+.wag__geth-clicked {
+  background: url("images/geth.png") no-repeat;
+}
+
+.wag__geth.wag__geth-visible {
+  top: 0;
+}
+
+.wag__hole {
+  background: url("images/masseffectcrate.jpg");
+  height: 50px;
+}
+
+.wag__timer {
+  display: none;
+}
+
+.wag__timer.wag__timer-show {
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  .wag__game-container {
+    width: 600px;
+  }
+
+  .wag__geth.wag__geth-visible {
+    top: 0;
+  }
+
+  .wag__hole-container {
+    height: 250px;
+  }
+
+  .wag__geth-container {
+    height: 200px;
+  }
+
+  .wag__geth {
+    height: 250px;
+    top: 250px;
+  }
+
+  .wag__scorecard {
+    flex-direction: row;
+    width: 600px;
+  }
+
+  .wag__scorecard > div {
+    margin-bottom: 0;
+  }
+}
