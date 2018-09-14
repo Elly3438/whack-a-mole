@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const BASE_TIMER = 2;
+  const BASE_TIMER = 15;
   const BASE_SCORE = 0;
   const SCORE_INCREMENT = 10;
   const MIN_WAIT_TIME = 200;
